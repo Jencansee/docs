@@ -1,11 +1,9 @@
-Who Should Read This
-This guide is designed to assist editors in using the Evo CMS website.
+This section is designed to assist new users of Evolution CMS and get a grasp of its basic conceps.
 
-This guide should be used in conjunction with the Evo Administrator's Guide, which covers more advanced topics such as
+For better understading of this section - it's advised to have an installed and configured version of Evolution CMS.
 
-Backing up
-Creating users
-Creating secure areas
-In preparing this guide we have presumed that your web developer has already configured the basic setup for your website.
+This guide should be used in conjunction with Evolution CMS Administrator's Guide, which covers more advanced topics such as
 
-Accordingly, we deal with the basic administration issues you are likely to face in the order in which they are likely to occur.
+- Backing up
+- Creating users
+- Creating secure areas
