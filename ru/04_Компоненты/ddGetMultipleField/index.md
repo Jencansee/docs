@@ -1,29 +1,25 @@
+Сниппет для вывода данных, разделённых через определённые разделители. Удобно использовать для вывода значений полей документов, сформированных виджетом [mm_ddMultipleFields](https://docs.evo.im/04_extras/managermanager/03_vidzhety.html#collapse322)
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<h3>ddGetMultipleField Сниппет для вывода данных </h3> 
-Сниппет для вывода данных, разделённых через определённые разделители. Удобно использовать для вывода значений полей документов.	
-<br>
-<p>Сниппет для вывода данных, разделённых через определённые разделители. Удобно использовать для вывода значений полей документов, сформированных виджетом <a href="128.html">mm_ddMultipleFields</a>.</p>
-<p>Автор: <i class="fa fa-github fa-lg text-primary"></i> <a href="https://github.com/DivanDesign/MODXEvo.snippet.ddGetMultipleField" rel="nofollow" target="_blank">DivanDesign</a></p>
+# Возможности
 
-<h3 class="sub-header">Возможности:</h3>
-<ul>
-	<li>Получение необходимого поля документа (и TV) по id. Параметры «inputString_docField» и «inputString_docId».</li>
-	<li>Вывод необходимого количества значений по номерам строк и и значениям. Параметры «startRow», «totalRows» и «filter».</li>
-	<li>Вывод необходимых значений по номерам колонок. Параметр «columns».</li>
-	<li>Сортировка строк по значениям колонок перед выводом ('ASC', 'DESC', 'RAND', 'REVERSE'), в том числе множественная сортировка. Параметры «sortDir» и «sortBy».</li>
-	<li>Вывод значений через разделители строк и колонок. Параметры «rowGlue» и «colGlue».</li>
-	<li>Удаление пустых значений колонок и строк перед выводом. Параметры «removeEmptyRows» и «removeEmptyCols».</li>
-	<li>Типографирование значений перед выводом (используется сниппет <a href="ddtypograph/index.html">ddTypograph</a>). Параметр «typography».</li>
-	<li><span style="word-spacing:nowrap;">URL-кодирование</span> результата перед выводом. Параметр «urlencode».</li>
-	<li>Вывод результата в JSON. Параметр «outputFormat».</li>
-	<li>Вывод значений по шаблонам (чанкам) строк и колонок (в шаблоне строк также доступен плэйсхолдер <span>[</span>+rowNumber+] с номером строки). Параметры «rowTpl» и «colTpl».</li>
-	<li>Вывод результата выполнения в чанк «outerTpl» с передачей дополнительных данных через параметр «placeholders».</li>
-</ul>
+- Получение необходимого поля документа (и TV) по id. Параметры «inputString_docField» и «inputString_docId».
+- Вывод необходимого количества значений по номерам строк и и значениям. Параметры «startRow», «totalRows» и «filter».
+- Вывод необходимых значений по номерам колонок. Параметр «columns».
+- Сортировка строк по значениям колонок перед выводом ('ASC', 'DESC', 'RAND', 'REVERSE'), в том числе множественная сортировка. Параметры «sortDir» и «sortBy».
+- Вывод значений через разделители строк и колонок. Параметры «rowGlue» и «colGlue».
+- Удаление пустых значений колонок и строк перед выводом. Параметры «removeEmptyRows» и «removeEmptyCols».
+- Типографирование значений перед выводом (используется сниппет (ddTypograph)[https://docs.evo.im/04_extras/ddtypograph.html]). Параметр «typography».
+- URL-кодирование результата перед выводом. Параметр «urlencode».
+- Вывод результата в JSON. Параметр «outputFormat».
+- Вывод значений по шаблонам (чанкам) строк и колонок (в шаблоне строк также доступен плэйсхолдер <span>[</span>+rowNumber+] с номером строки). Параметры «rowTpl» и «colTpl».
+- Вывод результата выполнения в чанк «outerTpl» с передачей дополнительных данных через параметр «placeholders».
 
-<h2 class="page-header">Документация</h2>
-<p>Из пары параметров «inputString»/«inputString_docField» необходимо передавать лишь один.</p>
-<h3 class="sub-header">Описание параметров</h3>
+# Документация
+
+Необходимо передавать один из «inputString» / «inputString_docField» параметров.
+
+**Описание параметров**
+
 <table class="table table-bordered table-vcenter flip-content">
 	<thead class="flip-content bordered-palegreen">
 		<tr>
@@ -205,26 +201,32 @@
 	</tbody>
 </table>
 
-<h3 class="sub-header">Примеры</h3>
-<h4>Вывод изображений с описаниями</h4>
-<p>Исходная строка (пусть находится в TV документа «images»):</p>
-<pre class="brush: html;">
-assets/images/some_img1.jpg::Изображение 1||assets/images/some_img2.jpg::Изображение 2</pre>
-<p>Вызов сниппета в шаблоне документа:</p>
-<pre class="brush: html;">
-[[ddGetMultipleField?
-&inputString=``
-&rowTpl=`images_item`
-]]
-</pre>
-<p>Код чанка «images_item»:</p>
-<pre class="brush: html;">
-[+col1+]:
-&lt;img src="[+col0+]" alt="[+col1+]" /&gt;
-</pre>
+# Примеры
 
-<h4>Получение и вывод данных из поля (TV) «prices» документа с id = 25 в виде таблицы, если что-то есть и ничего, если нету</h4>
-<p>Исходное значение поля:</p>
+**Вывод изображений с описаниями**
+
+Исходная строка (пусть находится в TV документа «images»):
+
+`assets/images/some_img1.jpg::Изображение 1||assets/images/some_img2.jpg::Изображение 2`
+
+
+Вызов сниппета в шаблоне документа:
+```php
+  [[ddGetMultipleField?
+    &inputString=``
+    &rowTpl=`images_item`
+  ]]
+```
+
+Код чанка «images_item»:
+```php
+[+col1+]:
+<img src="[+col0+]" alt="[+col1+]" />
+```
+
+**Получение и вывод данных из поля (TV) «prices» документа №25 в виде таблицы**
+
+Исходное значение поля:
 <pre class="brush: html;">Яблоки вкусные::100::кг||Гвозди обыкновенные::5 000::центнер||Коты::865::шт</pre>
 
 <p>Вызов сниппета (где угодно):</p>
@@ -297,4 +299,3 @@ assets/images/some_img1.jpg::Изображение 1||assets/images/some_img2.j
 <pre class="brush: html;">[+rowNumber+]. [+col0+], весит [+col1+], [+col2+] – &lt;i&gt;[+price+]&lt;/i&gt;&lt;br /&gt;</pre>
 <p>Код чанка «cats_item_color» (вместо «[+colorTitle+]» подставится «Шерсть густая, хорошая»):</p>
 <pre class="brush: html;">&lt;span title="[+colorTitle+]"&gt;[+val+]&lt;/span&gt;</pre>
-<p><i>Примеров здесь можно напридумывать великое множество.</i></p>
